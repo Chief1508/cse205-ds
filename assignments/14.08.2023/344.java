@@ -1,17 +1,20 @@
 class Solution {
     public void reverseString(char[] s)
     {
+      reverseHelper(s,0,s.length-1);  
         
-        char[] w=new char[s.length];
-
-        for(int i=s.length-1;i>=0;i--)
+    }
+    private void reverseHelper(char[] s,int l,int r)
+    {
+        if(l>=r)
         {
-            w[s.length -i-1]=s[i];
+            return;
         }
-        for (int i=0;i<s.length;i++)
-        {
-            s[i]=w[i];
-        }
+        char temp=s[l];
+        s[l]=s[r];
+        s[r]=temp;
+        reverseHelper(s,l+1,r-1);
     }
     }
 
+    
